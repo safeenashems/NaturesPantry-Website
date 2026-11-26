@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nature's Pantry</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"><!--for making responsive,else wont work in devices smaller as intended -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!--for whataspp,fb,insta icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <!--fav icon--><link rel="shortcut icon" href="./assets/images/favicon.png">
+     <!--linking css-->   
+     <link rel="stylesheet" href="./assets/style/index.css"> 
+     <link rel="stylesheet" href="./assets/style/APIintegration.css"> 
+
+     
+    
+
+    <!--for font great-vibes--> <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <!-- fontawesome s link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+</head>
+  <body class="light-theme" style="margin: 0;padding: 0%;">
+  <nav class="navbar  fixed-top navbar-expand-md">
+    <div class="container-fluid" style="position: relative; ">
+     
+    <div> <img class="navbar-brand " src="./assets/images/logo.png" alt="Nature's Pantry"></div> 
+      
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav ">
+          <li class="nav-item" style="color: #ffa500 !important;">
+            <a class="nav-link " aria-current="page" href="#hero-section" >Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#aboutUs">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#categories">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#footer">Contact Us</a>
+          </li></ul>
+
+          <ul> <li class="nav-Login ms-auto" style="list-style: none;">
+         
+         <button class="login-btn"  onclick="document.getElementById('signIn').style.display ='block'">Login</button> 
+        </li>
+        </ul>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="image-container" id="hero-section" style=" position: relative;padding: 120px 0 100px 0;height: 100vh;">
+   
+
+    <img src="./assets/images/hero section.png" style="margin: auto;">
+      
+
+
+
+   <!-- <button id="themeButton"></button> -->
+    <!--theme change starts  -->
+   <div id="themeButton" style="background-color: black;position: fixed;top: 10vh;right:3px;border-radius: 50px;">
+    <input type="checkbox" class="checkbox" id="checkbox">
+    <label for="checkbox" class="checkbox-label">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+      <span class="ball"></span>
+    </label>
+  </div>
+ <!--theme change ends -->
+
+
+
+  </div>
+        <!-- login form ie signIn starts  -->
+    <div class="signIn animate" id="signIn" style="display: none;">
+      <button id="signInCloseBtn" class="close" onclick="document.getElementById('signIn').style.display ='none'"><b>&times</b></button>
+      <form onsubmit="return login(event);" >
+        <h1>Login</h1>
+        <div class="input-box">
+          <input type="text" placeholder="Username" id="loginuName" required>
+          <!-- <i class='bx bxs-user'></i> -->
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="password" id="loginPswd" required>
+          <!-- <i class='bx bxs-lock-alt'></i> -->
+        </div>
+        <div class="remember-forgot">
+          <input type="checkbox">Remember me</label>
+                    <a href="#">Forgot password ?</a>
+        </div>
+        <button type="Submit" class="btn" >Login</button>
+        <div class="register-link">
+          <p>Don't have an account? &nbsp; 
+            <button type="button" onclick="toggleForms()" style="border: none;background-color: transparent; color: #28A745;"><b>Sign up</b></button>
+            <!-- <button class="signup-btn" onclick="document.getElementById('signIn').style.display ='none'"></button> 
+            <button class="signup-btn" onclick="document.getElementById('signup').style.display ='block'">Sign up</button> -->
+          </p> 
+        </div>
+      </form>
+    </div>
+ <!-- login ends -->
+
+      <!-- signup starts-->
+      <div class="signup animate" id="signup" style="display: none;">
+        <button id="signUpCloseBtn" class="close" onclick="document.getElementById('signup').style.display ='none'"><b>&times</b></button>
+        <form action="" >
+          <h1>Sign Up</h1>
+          <div class="input-box">
+            <input type="number" placeholder="Mobile Number" id="mob" name="mob"required autofocus>
+          </div>
+          <div class="input-box">
+            <input type="text" placeholder="Full Name" id="fulName" name="fulName"required>
+          </div>
+          <div class="input-box">
+            <input type="text" placeholder="Username" id="signupuName" required>
+          </div>
+          <div class="input-box">
+            <input type="password" placeholder="password" id="signupPswd" required>
+          </div>
+         
+       
+          <button type="Submit" class="signupBtn" onclick="signup(event)">Sign up</button>
+          <div class="register-link">
+            <p>Have an account? &nbsp; 
+              <button type="button" onclick="toggleForms()" style="border: none;background-color: transparent; color: #28A745;"><b>Login</b></button>
+              <!-- <a href="#">Login</a> -->
+            </p>
+          </div>
+        </form>
+      </div>
+   <!-- signup ends -->
+
+ 
+ 
+   <!--aboutus section starts--> 
+ <div id="aboutUs" style="padding-top:11vh;">
+    <div class="visible-content" style="display: flex;margin:5px;">
+      <div class="about-Imgs"> <img src="./assets/images/hero sec.png"> </div>
+      <div class="para">
+        <p><b class="para-caption">Welcome to Nature's Pantry – Your One-Stop Shop for Quality, Freshness and Value!</b><br>   
+          At Nature’s Pantry, we are dedicated to providing a convenient shopping experience with high-quality products, competitive prices, and
+          exceptional customer service. Our mission has always been to make grocery shopping simple, accessible, and enjoyable to all across Kerala.
+          <br> <b  class="para-caption">Our Story</b><br> 
+          Our journey began in 2000,with a vision to bring a wide variety of products under one roof. Over the past 24 years, we have expanded to 13 
+          branches across Kerala, becoming a trusted source .With over 250 dedicated staff members, Nature’s Pantry is known for its commitment to 
+          quality, variety, and affordability,and remains a beloved part of the local community.</p>
+       
+       </div>
+      <div class="about-Imgs"> <img src="./assets/images/supermarket-staff.avif">  </div>
+    </div>  
+     
+
+    <div class="hidden-content" style="display: none;margin: 5px;">
+      <div class="about-Imgs"><img src="./assets/images/hero sec2.png">  </div>
+        <div class="para" >
+          <p><br><b  class="para-caption">What We Offer</b><br> 
+          <b>Fresh and Local Produce:</b> We proudly source fresh fruits, vegetables, and meats from local farms and trusted suppliers.
+          <br> <b >Quality Guaranteed:</b> From pantry essentials to specialty items, every product is carefully selected with quality and value in mind.
+          <br><b >Customer-Centric Service:</b>  Our friendly team is always ready to assist you for a easy and enjoyable shopping experience.
+          <br><b  class="para-caption">Our Values</b><br> 
+          <b>Community First:</b>   As a locally owned supermarket, we are dedicated to giving back through local partnerships and events that positively impact our customers’ lives.
+          <br><b>Sustainability:</b> We are committed to eco-friendly practices, from reducing waste to sourcing sustainable products.
+          <!-- <br><b>Innovation:</b>  We continually evolve our services, offering online shopping options and special promotions to meet the ever-changing needs of our customers.
+          --></p>
+        </div>
+      <div class="about-Imgs"> <img src="./assets/images/aboutus section.jpg">  </div>
+    </div> </p><button id="readMoreBtn" class="read-more-btn">Read More</button>
+  </div>
+
+ 
+
+
+ </div>
+
+ <!--aboutus section ends--> 
+
+<!--Api integration starts-->
+<div id="categories" class="ctgryContainer">
+  <!-- <h2 style="text-align: center;">CATEGORY</h2> -->
+  <div class="categorylist" id="categorylist" style="padding-top: 50px;">
+
+      <div id="ctgry" style="background-color: #ffffff !important;">
+          <button onclick="groceriesCtgrDisp()">   <img src="./assets/images/groceries.jpeg">
+          <h4 style="margin-top: 12px;">Groceries</h4></button>
+      </div>
+      <div id="ctgry">
+          <button onclick="KitchenCtgrDisp()">   <img src="./assets/images/kitchen accessories.jpeg">
+          <h4 style="margin-top: 12px;">kitchen</h4></button>
+      </div>
+      <div id="ctgry">
+          <button onclick="beautyCtgrDisp()"> <img src="./assets/images/beauty.jpeg">
+          <h4 style="margin-top: 12px;">Beauty</h4></button>
+      </div>
+       <div id="ctgry">
+          <button onclick="FragrancesCtgrDisp()">   <img src="./assets/images/fragrance img.jpeg">
+          <h4 style="margin-top: 12px;">Fragrances</h4></button>
+      </div>
+    <div id="ctgry">
+        <button onclick="homeDecorationCtgrDisp()"> <img src="./assets/images/home decoration.jpeg">
+        <h4 style="margin-top: 12px;">Home</h4></button>
+    </div> 
+
+  </div>
+
+
+<div class="search-container">
+  <input type="text" placeholder="Search for products..."  id="searchInput">
+  <i class="fas fa-search search-icon" id="search-icon"></i>
+</div>
+<div id="dispContainer" >
+  <ul id="productList">
+           <!-- search result comes here... -->
+  </ul>
+</div>
+</div>
+<!--Api integration ends-->
+
+ 
+
+
+<!--footer starts-->
+
+<footer id="footer" class="text-white p-3" style="margin-top: 100px;">
+<div class="container" >
+<div class="row" style="justify-content: center;">
+      
+      <div class=" col-md-6 col-xl-3">
+        <h3 class="events">Get to Know Us</h3>
+        <hr>
+        <ul class="list-unstyled ">
+          <a href="#aboutUs" style="color: #ffffff; text-decoration: none; ">
+            <li class="py-2">About Nature'sPantry</li>
+          </a>
+          <a href="#NaturesPantry.jobs" style="color: #ffffff; text-decoration: none;">
+            <li class="py-2">Careers</li>
+          </a>
+          <a href="#NaturesPantry.policies" style="color: #ffffff; text-decoration: none;">
+            <li class="py-2">Privacy & Policy</li>
+          </a>
+          <a href="#NaturesPantry.Terms&conditions" style="color: #ffffff; text-decoration: none;">
+            <li class="py-2">Terms & Conditions</li>
+          </a>
+        </ul>
+      </div>
+      <div class=" col-md-6 col-xl-3">
+        <h3 class="events">Let Us Help You</h3>
+        <hr>
+        <ul class="list-unstyled ">
+          <a href="#accountsettings" style="color: #ffffff; text-decoration: none; ">
+            <li class="py-2">Your Account</li>
+          </a>
+          <a href="#policies" style="color: #ffffff; text-decoration: none;">
+            <li class="py-2">Returns Centre</li>
+          </a>
+          <a href="#" style="color: #ffffff; text-decoration: none;">
+            <li class="py-2">App Download</li>
+          </a>
+          <a href="#" style="color: #ffffff; text-decoration: none;">
+            <li class="py-2">Help</li>
+          </a>
+        </ul>
+      </div>
+      <div class=" col-md-6 col-xl-3">
+        <h4><Span class="webName">Nature's</Span> <span class="webNameEnd">Pantry</span></h4>
+
+        <ul class="list-unstyled" style="list-style-type: none; ">
+          <!-- <li><i class="fa-solid fa-house p-3 "></i>All Kerala</li> -->
+          <li><i class="fa-regular fa-envelope p-3 "></i>naturespantry@gmail.com</li>
+          <li><i class="fa-solid fa-phone p-3 "></i>+91 9995666555 </li>
+        <li><i class="fa-brands fa-whatsapp p-3"></i>+91 9995556660 </li></ul>
+         
+        
+   
+
+        <ul class="list-unstyled d-flex  flex-wrap">
+          <li class="icon--payment">
+            <svg viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24"
+              aria-labelledby="pi-visa">
+              <title id="pi-visa">Visa</title>
+              <path opacity=".07"
+                d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path>
+              <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32">
+              </path>
+              <path
+                d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z"
+                fill="#142688"></path>
+            </svg>
+          </li>&nbsp;
+          <li class="icon--payment">
+            <svg viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24"
+              aria-labelledby="pi-master">
+              <title id="pi-master">Mastercard</title>
+              <path opacity=".07"
+                d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path>
+              <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32">
+              </path>
+              <circle fill="#EB001B" cx="15" cy="12" r="7"></circle>
+              <circle fill="#F79E1B" cx="23" cy="12" r="7"></circle>
+              <path fill="#FF5F00"
+                d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"></path>
+            </svg>
+          </li>&nbsp;
+          <li class="icon--payment">
+            <svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-american_express"
+              viewBox="0 0 38 24" width="38" height="24">
+              <title id="pi-american_express">American Express</title>
+              <path fill="#000" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3Z"
+                opacity=".07"></path>
+              <path fill="#006FCF" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32Z">
+              </path>
+              <path fill="#FFF"
+                d="M22.012 19.936v-8.421L37 11.528v2.326l-1.732 1.852L37 17.573v2.375h-2.766l-1.47-1.622-1.46 1.628-9.292-.02Z">
+              </path>
+              <path fill="#006FCF"
+                d="M23.013 19.012v-6.57h5.572v1.513h-3.768v1.028h3.678v1.488h-3.678v1.01h3.768v1.531h-5.572Z"></path>
+              <path fill="#006FCF"
+                d="m28.557 19.012 3.083-3.289-3.083-3.282h2.386l1.884 2.083 1.89-2.082H37v.051l-3.017 3.23L37 18.92v.093h-2.307l-1.917-2.103-1.898 2.104h-2.321Z">
+              </path>
+              <path fill="#FFF"
+                d="M22.71 4.04h3.614l1.269 2.881V4.04h4.46l.77 2.159.771-2.159H37v8.421H19l3.71-8.421Z"></path>
+              <path fill="#006FCF"
+                d="m23.395 4.955-2.916 6.566h2l.55-1.315h2.98l.55 1.315h2.05l-2.904-6.566h-2.31Zm.25 3.777.875-2.09.873 2.09h-1.748Z">
+              </path>
+              <path fill="#006FCF"
+                d="M28.581 11.52V4.953l2.811.01L32.84 9l1.456-4.046H37v6.565l-1.74.016v-4.51l-1.644 4.494h-1.59L30.35 7.01v4.51h-1.768Z">
+              </path>
+            </svg>
+&nbsp;
+          </li>
+          <li class="icon--payment">
+            <svg viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img"
+              aria-labelledby="pi-paypal">
+              <title id="pi-paypal">PayPal</title>
+              <path opacity=".07"
+                d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path>
+              <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32">
+              </path>
+              <path fill="#003087"
+                d="M23.9 8.3c.2-1 0-1.7-.6-2.3-.6-.7-1.7-1-3.1-1h-4.1c-.3 0-.5.2-.6.5L14 15.6c0 .2.1.4.3.4H17l.4-3.4 1.8-2.2 4.7-2.1z">
+              </path>
+              <path fill="#3086C8"
+                d="M23.9 8.3l-.2.2c-.5 2.8-2.2 3.8-4.6 3.8H18c-.3 0-.5.2-.6.5l-.6 3.9-.2 1c0 .2.1.4.3.4H19c.3 0 .5-.2.5-.4v-.1l.4-2.4v-.1c0-.2.3-.4.5-.4h.3c2.1 0 3.7-.8 4.1-3.2.2-1 .1-1.8-.4-2.4-.1-.5-.3-.7-.5-.8z">
+              </path>
+              <path fill="#012169"
+                d="M23.3 8.1c-.1-.1-.2-.1-.3-.1-.1 0-.2 0-.3-.1-.3-.1-.7-.1-1.1-.1h-3c-.1 0-.2 0-.2.1-.2.1-.3.2-.3.4l-.7 4.4v.1c0-.3.3-.5.6-.5h1.3c2.5 0 4.1-1 4.6-3.8v-.2c-.1-.1-.3-.2-.5-.2h-.1z">
+              </path>
+            </svg>
+          </li></ul></div>
+          <hr>
+          
+          <div col-md-12 >
+            <h6 class="text-center" style="text-align: center;padding: 1px;">Copyright ⓒ All rights reserved by: <span class="webName2"> Nature's</span> <span
+                class="webNameEnd2">Pantry</span></h6>
+  
+          </div>
+          <ul class="list-unstyled d-flex align-items-center justify-content-center ">
+            <a href="https://www.facebook.com/login/" class="icon">
+              <li><i class="fa-brands fa-facebook p-3" style="color: #ffffff;"></i></li>
+            </a>
+            <a
+              href="https://x.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJteCI6IjIifQ%3D%3D%22%7D" class="icon">
+              <li><i class="fa-brands fa-twitter p-3" style="color: #ffffff;"></i></li>
+            </a>
+            <a href="https://www.instagram.com/accounts/login/?next=%2Flivein.now%2Ftagged%2F&source=profile_tagged_tab" class="icon">
+              <li><i class="fa-brands fa-instagram p-3" style="color: #ffffff;"></i></li>
+            </a>
+            <a href="https://www.youtube.com/account" class="icon">
+              <li><i class="fa-brands fa-youtube p-3" style="color: #ffffff;"></i></li>
+            </a>
+          </ul>
+  
+        </div>
+      </div>
+   
+    </footer>
+          <script src="./script/index.js"></script>
+          <script src="./script/APIintegration.js"></script>
+  </body>
+</html>
