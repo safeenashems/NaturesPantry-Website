@@ -20,4 +20,8 @@ Login and data run in the browser only (no backend or database), so this project
 2. Open `index.html` in your browser
 
 ## Screenshots
-(add 2-3: home page, login page, inventory page)
+#home page
+
+#login page
+
+#products lsiting
