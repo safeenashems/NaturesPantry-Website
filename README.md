@@ -12,16 +12,17 @@ A dynamic supermarket website built with vanilla JavaScript, featuring user sign
 ## Built With
 HTML, CSS, JavaScript (no frameworks), REST API
 
-## Note
-Login and data run in the browser only (no backend or database), so this project is for learning and demonstration.
-
 ## Run Locally
 1. Clone: `git clone https://github.com/safeenashems/NaturesPantry-Website.git`
 2. Open `index.html` in your browser
 
 ## Screenshots
 #home page
+<img width="1896" height="1016" alt="Screenshot 2026-11-26 071106" src="https://github.com/user-attachments/assets/5a56a356-850d-4021-a3f3-7a3a04a2ef66" />
+<img width="1896" height="1016" alt="Screenshot 2026-11-26 071106" src="https://github.com/user-attachments/assets/5d3c6eb6-8fa7-467a-ae0d-82f62357661e" />
 
 #login page
+<img width="1912" height="1018" alt="Screenshot 2026-11-26 071018" src="https://github.com/user-attachments/assets/e5520cb0-0073-497a-ab01-09c23ae604a8" />
 
 #products lsiting
+<img width="1896" height="1016" alt="Screenshot 2026-11-26 071106" src="https://github.com/user-attachments/assets/61bce04b-4452-4eb9-adcb-f2ce55123853" />
